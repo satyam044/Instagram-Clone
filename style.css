@@ -1,0 +1,270 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    max-width: 40rem;
+    margin: auto;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 3rem;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+nav{
+    position: relative;
+    right: 3rem;
+    width: 20vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a{
+    color: black;
+}
+nav img{
+    width: 1.4rem;
+    cursor: pointer;
+}
+nav img,.noti i{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+nav img:hover,.noti i:hover{
+    position: relative;
+    top: -3px;
+    transform: scale(1.2);
+}
+
+.stories{
+    margin:1rem 0;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    align-items: center;
+}
+.stories::-webkit-scrollbar{
+    height:0;
+}
+.myStory{
+    height: 4rem;
+    min-width: 4rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    position: relative;
+    background-color: rgb(223, 243, 243);
+    cursor: pointer;
+}
+.myStory i{
+    height: 1.2rem;
+    width: 1.2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(206, 225, 225);
+    cursor: pointer;
+}
+.otherStories{
+    white-space: nowrap;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.otherStories .Story{
+    height: 4rem;
+    width: 4rem;
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    border: 3px double rgb(255, 136, 0);
+    border-left-color: rgb(234, 0, 255);
+    border-right-color: rgb(247, 5, 45);
+    overflow: hidden;
+}
+.otherStories .Story img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.stories .story-fill{
+    height: 100%;
+    width: 51%;
+    background-color: #dfe1e0;
+    position: fixed;
+    z-index: 10;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.stories .story-fill .storyFilled{
+    width: 60%;
+    height: 95%;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0.8);
+}
+.stories .story-fill .storyBar{
+    position: absolute;
+    background-color: rgba(232, 227, 209, 0.769);
+    height: 0.1rem;
+    width: 90%;
+    z-index: 100;
+    top: 3%;
+    left: 5%;
+    animation: storyBar 4s 1 linear;
+    display: none;
+}
+@keyframes storyBar {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 90%;
+    }
+}
+
+.photos{
+    margin: 2rem 0;
+    height: 60vh;
+    width: 100%;
+}
+.photos .photoSec{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-bottom: 3rem;
+}
+.photos .photoSec .photoImg{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.photos .photoSec img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    border-radius: 10px;
+    position: relative;
+}
+.photos .photoSec .photoI{
+    position: absolute;
+    bottom: -1.9rem;
+    width: 10%;
+    display: flex;
+}
+.photos .photoSec .photoI i,.photos .photoSec .photoI i2{
+    position: relative;
+    cursor: pointer;
+} 
+.photos .photoSec .photoI i:hover,.photos .photoSec .photoI i2:hover{
+    bottom: 1px;
+}
+.photos .photoSec .photoI p, .photos .photoSec .photoI p2{
+    margin-left: 0.3rem;
+    margin-right: 1.9rem;
+}
+
+.photos .screenLike{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+}
+.photos .screenLike i{
+    position: absolute;
+    z-index: 1000;
+    font-size: 5rem;
+    filter: invert(1);
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all 1.4s ease-in;
+}
+
+
+
+
+
+
+/* reels */
+.reelContainer{
+    margin:1.5rem auto;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+.reelContainer .reelNextVideo video{
+    position: relative;
+    height: 90%;
+    width: 100%;
+    cursor: pointer;
+    filter: brightness(0.7);
+    background-size: contain;
+    z-index: 1;
+}
+.reelContainer .reelIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    position: relative;
+    right:4rem;
+}
+.reelContainer .reelIcon i{
+    font-size: 2vw;
+    margin: 1rem 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: invert(1);
+    position: relative;
+    z-index: 10;
+}
+.reelContainer .reelIcon i:hover{
+    position: relative;
+    top: -2px;
+}
+.reelContainer .reelIcon i p{
+    margin-top: 0.7rem;
+    font-size: 0.7rem;
+}
+.reelContainer .reelDown i{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 10;
+    cursor: pointer;
+}
+.reelContainer .likeReel{
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 35%;
+    cursor: pointer;
+    font-size: 4rem;
+    filter: invert(1);
+    opacity: 0;
+    transition: all 1.5s ease;
+}
