@@ -46,240 +46,250 @@ function post() {
     let photosI2 = document.querySelectorAll(".photoI i2");
     let photosP = document.querySelectorAll(".photos p");
     let photosP2 = document.querySelectorAll(".photos p2");
-
+    
     photosP.forEach((pElement) => {
-        let pLike = pElement;
         pElement.innerHTML = Math.floor(Math.random() * 10000);
-        pLike.innerText = parseInt(pLike.innerText) + 1;
     });
-
-    photosP2.forEach((p2Element) => {
-        p2Element.innerHTML = Math.floor(Math.random() * 1000);
+    photosP2.forEach((pElement) => {
+        pElement.innerHTML = Math.floor(Math.random() * 10000);
     });
-
+    
     photosI.forEach((photoLike, index) => {
-        let liked = 0;
         let pLike = photosP[index];
-
+        let liked = false;
+    
         photoLike.addEventListener("click", function () {
-            if (liked === 0) {
-                photoLike.classList.toggle("fa-solid");
+            if (!liked) {
+                photoLike.classList.add("fa-solid");
                 pLike.innerText = parseInt(pLike.innerText) + 1;
-                liked = 1;
-                photoLike.style.transform = "scale(1.1)"
-                setInterval(() => {
-                    photoLike.style.transform = "scale(1)"
+    
+                photoLike.style.transform = "scale(1.1)";
+                setTimeout(() => {
+                    photoLike.style.transform = "scale(1)";
                 }, 100);
+    
                 screenLike.forEach((screen) => {
-                    screen.style.opacity = "0.5"
+                    screen.style.opacity = "0.5";
                     setTimeout(() => {
-                        screen.style.opacity = "0"
-                    }, 1200)
-                })
+                        screen.style.opacity = "0";
+                    }, 1200);
+                });
+    
+                liked = true;
             } else {
-                photoLike.classList.toggle("fa-solid");
+                photoLike.classList.remove("fa-solid");
                 pLike.innerText = parseInt(pLike.innerText) - 1;
-                liked = 0;
+                liked = false;
             }
         });
-        photoImg.forEach((likeEvent) => {
-            if (liked === 0) {
-                likeEvent.addEventListener("dblclick", function () {
-                    pLike.innerText = parseInt(pLike.innerText) + 1;
-                    photoLike.classList.toggle("fa-solid");
-                    screenLike.forEach((screen) => {
-                        screen.style.opacity = "0.5"
-                        setTimeout(() => {
-                            screen.style.opacity = "0"
-                        }, 1200)
-                    })
-                })
-                liked = 1;
-            } else {
-                photoLike.classList.toggle("fa-solid");
-                pLike.innerText = parseInt(pLike.innerText) - 1;
-                liked = 0;
+    });
+    
+    photoImg.forEach((imgElement, index) => {
+        let likedE = false;
+        imgElement.addEventListener("dblclick", function () {
+            if (likedE == false) {
+                let pLike = photosP[index];
+                photoLike = photosI[index];
+                likedE = true;
+        
+                photoLike.classList.add("fa-solid");
+                pLike.innerText = parseInt(pLike.innerText) + 1;
+        
+                screenLike.forEach((screen) => {
+                    screen.style.opacity = "0.5";
+                    setTimeout(() => {
+                        screen.style.opacity = "0";
+                    }, 1200);
+                });
+            }else{
+                screenLike.forEach((screen) => {
+                    screen.style.opacity = "0.5";
+                    setTimeout(() => {
+                        screen.style.opacity = "0";
+                    }, 1200);
+                });
+                likedE = false;
             }
 
-        })
-});
+        });
+    });
 
-photosI2.forEach((photoPlane) => {
-    photoPlane.addEventListener("mousemove", function () {
-        photoPlane.classList.remove("fa-regular")
-        photoPlane.classList.add("fa-solid");
+    photosI2.forEach((photoPlane) => {
+        photoPlane.addEventListener("mousemove", function () {
+            photoPlane.classList.remove("fa-regular")
+            photoPlane.classList.add("fa-solid");
+        })
+        photoPlane.addEventListener("mouseleave", function () {
+            photoPlane.classList.add("fa-regular")
+            photoPlane.classList.remove("fa-solid")
+        })
     })
-    photoPlane.addEventListener("mouseleave", function () {
-        photoPlane.classList.add("fa-regular")
-        photoPlane.classList.remove("fa-solid")
+
+
+    window.addEventListener("scroll", function (event) {
+        scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        scrollend = window.scrollY;
+
+        if (Math.ceil(scrollend) === (scrollable)) {
+            const arr = [
+                "model",
+                "fashion",
+                "style",
+                "beauty",
+                "glamour",
+                "girl",
+                "posing",
+                "trend",
+                "vogue",
+                "modelling",
+                "high fashion",
+                "luxury",
+                "lifestyle",
+                "urban",
+                "trendy",
+                "photography",
+                "beautiful",
+                "photooftheday",
+                "travel",
+                "adventure",
+                "explore",
+                "instagood",
+                "instastyle",
+                "fashionista",
+                "vibes",
+                "confidence",
+                "swagger",
+                "news",
+                "chic",
+                "modern",
+                "classy",
+                "edgy",
+                "trendsetter",
+                "grace",
+            ];
+            let wordArr = Math.floor(Math.random() * arr.length)
+
+            function getRandomSize() {
+                const size = [
+                    'contain', 'cover',
+                ];
+
+                const randomSize = size[Math.floor(Math.random() * size.length)];
+                return randomSize;
+            }
+            function getRandomFilter() {
+                const filters = [
+                    'grayscale(100%)',
+                    'sepia(10%)',
+                    'brightness(50%)',
+                    'contrast(150%)',
+                ];
+
+                const randomFilter = filters[Math.floor(Math.random() * filters.length)];
+                return randomFilter;
+            }
+
+            let photos = "https://source.unsplash.com/random/?" + arr[wordArr];
+            let createPhoto = document.querySelector(".photos");
+            let photoSec = document.createElement("div"); // Create a new div element
+            photoSec.classList.add("photoSec"); // Add the "photoSec" class to the new div
+
+            let screenLike = document.createElement("div");
+            screenLike.classList.add("screenLike");
+
+            let screenElement = document.createElement("i");
+            screenElement.classList.add("fa-solid", "fa-heart", "photoLike");
+
+            screenLike.appendChild(screenElement)
+            photoSec.appendChild(screenLike)
+
+            // Create the photoImg div
+            let photoImgDiv = document.createElement("div");
+            photoImgDiv.classList.add("photoImg");
+
+            // Create the img element
+            let imgElement = document.createElement("img");
+            imgElement.src = photos;
+            imgElement.style.objectFit = getRandomSize();
+            imgElement.style.filter = getRandomFilter();
+
+            // Append the img element to the photoImg div
+            photoImgDiv.appendChild(imgElement);
+
+            // Create the photoI div
+            let photoIDiv = document.createElement("div");
+            photoIDiv.classList.add("photoI");
+            // Create the heart icon and count
+            let heartIcon = document.createElement("i");
+            heartIcon.classList.add("fa-regular", "fa-heart", "photoLike");
+
+            let heartCount = document.createElement("p");
+            const heartIconText = Math.floor(Math.random() * 10000);
+            heartCount.textContent = heartIconText;
+
+            // Function to set up click event listener for the heart icon and count
+            function setupHeartClick() {
+                let liked = 0;
+                let pLike = heartCount;
+
+                heartIcon.addEventListener("click", function () {
+                    if (liked === 0) {
+                        heartIcon.classList.toggle("fa-solid");
+                        pLike.textContent = parseInt(pLike.textContent) + 1;
+                        liked = 1;
+                        heartIcon.style.transform = "scale(1.1)"
+                        setInterval(() => {
+                            heartIcon.style.transform = "scale(1)"
+                        }, 100);
+                        screenElement.style.opacity = "0.5"
+                        setTimeout(() => {
+                            screenElement.style.opacity = "0"
+                        }, 1000)
+
+                    } else {
+                        heartIcon.classList.toggle("fa-solid");
+                        pLike.textContent = parseInt(pLike.textContent) - 1;
+                        liked = 0;
+                    }
+                });
+            }
+
+            // Call the function with an index (you can pass the appropriate index)
+            setupHeartClick(0);
+
+            // Append the heart icon and count to the photoI div
+            photoIDiv.appendChild(heartIcon);
+            photoIDiv.appendChild(heartCount);
+
+            // Create the paper-plane icon and count
+            let paperPlaneIcon = document.createElement("i2");
+            paperPlaneIcon.classList.add("fa-regular", "fa-paper-plane", "photoSend");
+            let paperPlaneCount = document.createElement("p2");
+            const paperPlaneText = Math.floor(Math.random() * 1000);
+            paperPlaneCount.textContent = paperPlaneText;
+
+            paperPlaneIcon.addEventListener("mousemove", function () {
+                paperPlaneIcon.classList.remove("fa-regular")
+                paperPlaneIcon.classList.add("fa-solid")
+            })
+            paperPlaneIcon.addEventListener("mouseleave", function () {
+                paperPlaneIcon.classList.add("fa-regular")
+                paperPlaneIcon.classList.remove("fa-solid")
+            })
+
+            // Append the paper-plane icon and count to the photoI div
+            photoIDiv.appendChild(paperPlaneIcon);
+            photoIDiv.appendChild(paperPlaneCount);
+
+            // Append the photoImg and photoI divs to the photoSec div
+            photoSec.appendChild(photoImgDiv);
+            photoSec.appendChild(photoIDiv);
+
+            // Append the photoSec div to the createPhoto element
+            createPhoto.appendChild(photoSec);
+
+        }
     })
-})
-
-
-window.addEventListener("scroll", function (event) {
-    scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    scrollend = window.scrollY;
-
-    if (Math.ceil(scrollend) === (scrollable)) {
-        const arr = [
-            "model",
-            "fashion",
-            "style",
-            "beauty",
-            "glamour",
-            "girl",
-            "posing",
-            "trend",
-            "vogue",
-            "modelling",
-            "high fashion",
-            "luxury",
-            "lifestyle",
-            "urban",
-            "trendy",
-            "photography",
-            "beautiful",
-            "photooftheday",
-            "travel",
-            "adventure",
-            "explore",
-            "instagood",
-            "instastyle",
-            "fashionista",
-            "vibes",
-            "confidence",
-            "swagger",
-            "news",
-            "chic",
-            "modern",
-            "classy",
-            "edgy",
-            "trendsetter",
-            "grace",
-        ];
-        let wordArr = Math.floor(Math.random() * arr.length)
-
-        function getRandomSize() {
-            const size = [
-                'contain', 'cover',
-            ];
-
-            const randomSize = size[Math.floor(Math.random() * size.length)];
-            return randomSize;
-        }
-        function getRandomFilter() {
-            const filters = [
-                'grayscale(100%)',
-                'sepia(10%)',
-                'brightness(50%)',
-                'contrast(150%)',
-            ];
-
-            const randomFilter = filters[Math.floor(Math.random() * filters.length)];
-            return randomFilter;
-        }
-
-        let photos = "https://source.unsplash.com/random/?" + arr[wordArr];
-        let createPhoto = document.querySelector(".photos");
-        let photoSec = document.createElement("div"); // Create a new div element
-        photoSec.classList.add("photoSec"); // Add the "photoSec" class to the new div
-
-        let screenLike = document.createElement("div");
-        screenLike.classList.add("screenLike");
-
-        let screenElement = document.createElement("i");
-        screenElement.classList.add("fa-solid", "fa-heart", "photoLike");
-
-        screenLike.appendChild(screenElement)
-        photoSec.appendChild(screenLike)
-
-        // Create the photoImg div
-        let photoImgDiv = document.createElement("div");
-        photoImgDiv.classList.add("photoImg");
-
-        // Create the img element
-        let imgElement = document.createElement("img");
-        imgElement.src = photos;
-        imgElement.style.objectFit = getRandomSize();
-        imgElement.style.filter = getRandomFilter();
-
-        // Append the img element to the photoImg div
-        photoImgDiv.appendChild(imgElement);
-
-        // Create the photoI div
-        let photoIDiv = document.createElement("div");
-        photoIDiv.classList.add("photoI");
-        // Create the heart icon and count
-        let heartIcon = document.createElement("i");
-        heartIcon.classList.add("fa-regular", "fa-heart", "photoLike");
-
-        let heartCount = document.createElement("p");
-        const heartIconText = Math.floor(Math.random() * 10000);
-        heartCount.textContent = heartIconText;
-
-        // Function to set up click event listener for the heart icon and count
-        function setupHeartClick() {
-            let liked = 0;
-            let pLike = heartCount;
-
-            heartIcon.addEventListener("click", function () {
-                if (liked === 0) {
-                    heartIcon.classList.toggle("fa-solid");
-                    pLike.textContent = parseInt(pLike.textContent) + 1;
-                    liked = 1;
-                    heartIcon.style.transform = "scale(1.1)"
-                    setInterval(() => {
-                        heartIcon.style.transform = "scale(1)"
-                    }, 100);
-                    screenElement.style.opacity = "0.5"
-                    setTimeout(() => {
-                        screenElement.style.opacity = "0"
-                    }, 1000)
-
-                } else {
-                    heartIcon.classList.toggle("fa-solid");
-                    pLike.textContent = parseInt(pLike.textContent) - 1;
-                    liked = 0;
-                }
-            });
-        }
-
-        // Call the function with an index (you can pass the appropriate index)
-        setupHeartClick(0);
-
-        // Append the heart icon and count to the photoI div
-        photoIDiv.appendChild(heartIcon);
-        photoIDiv.appendChild(heartCount);
-
-        // Create the paper-plane icon and count
-        let paperPlaneIcon = document.createElement("i2");
-        paperPlaneIcon.classList.add("fa-regular", "fa-paper-plane", "photoSend");
-        let paperPlaneCount = document.createElement("p2");
-        const paperPlaneText = Math.floor(Math.random() * 1000);
-        paperPlaneCount.textContent = paperPlaneText;
-
-        paperPlaneIcon.addEventListener("mousemove", function () {
-            paperPlaneIcon.classList.remove("fa-regular")
-            paperPlaneIcon.classList.add("fa-solid")
-        })
-        paperPlaneIcon.addEventListener("mouseleave", function () {
-            paperPlaneIcon.classList.add("fa-regular")
-            paperPlaneIcon.classList.remove("fa-solid")
-        })
-
-        // Append the paper-plane icon and count to the photoI div
-        photoIDiv.appendChild(paperPlaneIcon);
-        photoIDiv.appendChild(paperPlaneCount);
-
-        // Append the photoImg and photoI divs to the photoSec div
-        photoSec.appendChild(photoImgDiv);
-        photoSec.appendChild(photoIDiv);
-
-        // Append the photoSec div to the createPhoto element
-        createPhoto.appendChild(photoSec);
-
-    }
-})
 }
 
 post();
