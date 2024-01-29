@@ -1,19 +1,23 @@
 function story() {
     var storyArr = [
-        { dp: "https://plus.unsplash.com/premium_photo-1669703777695-f8052a432411?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", story: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-        { dp: "https://images.unsplash.com/photo-1506782081254-09bcfd996fd6?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", story: "https://images.unsplash.com/photo-1607748851687-ba9a10438621?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-        { dp: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", story: "https://images.unsplash.com/photo-1564485377539-4af72d1f6a2f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-        { dp: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", story: "https://plus.unsplash.com/premium_photo-1687294573673-ad2c5c370582?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-        { dp: "https://plus.unsplash.com/premium_photo-1673757121102-0ca51260861f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", story: "https://plus.unsplash.com/premium_photo-1667533288519-49d00a1620b2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-        { dp: "https://images.unsplash.com/photo-1705642126091-f6a72397a183?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", story: "https://images.unsplash.com/photo-1705773335937-17e1ff6fac10?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-        { dp: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", story: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+        { dp: "https://cdn.pixabay.com/photo/2015/07/09/00/29/woman-837156_1280.jpg", story: "https://cdn.pixabay.com/photo/2016/03/23/04/01/woman-1274056_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_1280.jpg", story: "https://cdn.pixabay.com/photo/2015/01/08/18/30/entrepreneur-593371_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2018/03/06/22/57/portrait-3204843_1280.jpg", story: "https://cdn.pixabay.com/photo/2015/03/03/08/55/portrait-657116_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2016/03/12/23/18/man-1253004_1280.jpg", story: "https://cdn.pixabay.com/photo/2023/04/24/04/23/couple-7947176_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2017/08/06/15/13/woman-2593366_1280.jpg", story: "https://cdn.pixabay.com/photo/2016/11/29/03/36/woman-1867093_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2013/05/11/08/28/sunset-110305_1280.jpg", story: "https://cdn.pixabay.com/photo/2018/07/23/06/10/man-3556090_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255_1280.jpg", story: "https://cdn.pixabay.com/photo/2016/03/27/17/40/man-1283231_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2016/04/24/20/56/man-1350599_1280.jpg", story: "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866572_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2016/11/21/11/17/model-1844729_1280.jpg", story: "https://cdn.pixabay.com/photo/2018/07/21/03/55/woman-3551832_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2018/04/03/20/26/woman-3287956_1280.jpg", story: "https://cdn.pixabay.com/photo/2020/03/26/09/08/girl-4969690_1280.jpg" },
+        { dp: "https://cdn.pixabay.com/photo/2017/04/25/05/10/romance-2258599_1280.jpg", story: "https://cdn.pixabay.com/photo/2017/11/03/18/26/man-2915187_1280.jpg" },
     ]
-
 
     let stories = document.querySelector(".stories .otherStories")
     let storyFill = document.querySelector(".stories .story-fill")
     let storyBar = document.querySelector(".stories .story-fill .storyBar")
     let storyFilled = document.querySelector(".stories .story-fill .storyFilled")
+    let storyClose = document.querySelector(".stories .storyFilled i")
 
     clutter = ""
     storyArr.forEach(function (elem, idx) {
@@ -28,11 +32,13 @@ function story() {
         storyFill.style.display = "flex"
         storyBar.style.display = "block"
         storyFilled.style.backgroundImage = `url(${targetStory})`
-        setTimeout(() => {
+        let clrTimeout = setTimeout(() => {
             storyFill.style.display = "none"
         }, 4000);
-
-
+        storyClose,storyFilled.addEventListener("click",function(){
+            storyFill.style.display = "none"
+            clearTimeout(clrTimeout)
+        })
     })
     stories.innerHTML = clutter
 }
@@ -46,35 +52,35 @@ function post() {
     let photosI2 = document.querySelectorAll(".photoI i2");
     let photosP = document.querySelectorAll(".photos p");
     let photosP2 = document.querySelectorAll(".photos p2");
-    
+
     photosP.forEach((pElement) => {
         pElement.innerHTML = Math.floor(Math.random() * 10000);
     });
     photosP2.forEach((pElement) => {
-        pElement.innerHTML = Math.floor(Math.random() * 10000);
+        pElement.innerHTML = Math.floor(Math.random() * 1000);
     });
-    
+
     photosI.forEach((photoLike, index) => {
         let pLike = photosP[index];
         let liked = false;
-    
+
         photoLike.addEventListener("click", function () {
             if (!liked) {
                 photoLike.classList.add("fa-solid");
                 pLike.innerText = parseInt(pLike.innerText) + 1;
-    
+
                 photoLike.style.transform = "scale(1.1)";
                 setTimeout(() => {
                     photoLike.style.transform = "scale(1)";
                 }, 100);
-    
+
                 screenLike.forEach((screen) => {
                     screen.style.opacity = "0.5";
                     setTimeout(() => {
                         screen.style.opacity = "0";
                     }, 1200);
                 });
-    
+
                 liked = true;
             } else {
                 photoLike.classList.remove("fa-solid");
@@ -83,7 +89,7 @@ function post() {
             }
         });
     });
-    
+
     photoImg.forEach((imgElement, index) => {
         let likedE = false;
         imgElement.addEventListener("dblclick", function () {
@@ -91,24 +97,28 @@ function post() {
                 let pLike = photosP[index];
                 photoLike = photosI[index];
                 likedE = true;
-        
+                liked = true;
+
                 photoLike.classList.add("fa-solid");
                 pLike.innerText = parseInt(pLike.innerText) + 1;
-        
+
                 screenLike.forEach((screen) => {
                     screen.style.opacity = "0.5";
                     setTimeout(() => {
                         screen.style.opacity = "0";
                     }, 1200);
                 });
-            }else{
+            }
+            else {
                 screenLike.forEach((screen) => {
                     screen.style.opacity = "0.5";
                     setTimeout(() => {
                         screen.style.opacity = "0";
                     }, 1200);
                 });
-                likedE = false;
+                if (liked==true) {
+                    console.log("likedddd")
+                }
             }
 
         });

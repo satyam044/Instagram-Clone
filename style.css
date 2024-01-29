@@ -86,8 +86,10 @@ nav img:hover,.noti i:hover{
     cursor: pointer;
     border-radius: 50%;
     display: inline-block;
-    border: 3px double rgb(255, 136, 0);
-    border-left-color: rgb(234, 0, 255);
+    border: 3px double;
+    border-top-color: rgb(234, 0, 255);
+    border-bottom-color: rgb(255, 136, 0);
+    border-left-color: rgb(255, 0, 225);
     border-right-color: rgb(247, 5, 45);
     overflow: hidden;
 }
@@ -128,6 +130,14 @@ nav img:hover,.noti i:hover{
     left: 5%;
     animation: storyBar 4s 1 linear;
     display: none;
+}
+.stories .storyFilled i{
+    position: relative;
+    font-size: 2rem;
+    left: 32vw;
+    width: 100%;
+    opacity: 0.7;
+    cursor: pointer;
 }
 @keyframes storyBar {
     from{
