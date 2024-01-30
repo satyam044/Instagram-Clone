@@ -20,12 +20,22 @@ function story() {
     let storyClose = document.querySelector(".stories .storyFilled i")
 
     clutter = ""
+    
+    let usedIndices = [];
     storyArr.forEach(function (elem, idx) {
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * storyArr.length);
+        } while (usedIndices.includes(randomIndex));
+
+        usedIndices.push(randomIndex);
+
+        let sdp = storyArr[randomIndex].dp;
+
         clutter += `<div class="Story">
-        
-        <img id="${idx} "src="${elem.dp}" alt="${elem.story}">
-        </div>`
-    })
+        <img id="${idx}" src="${sdp}" alt="${elem.story}">
+    </div>`;
+    });
 
     stories.addEventListener("click", function (data) {
         let targetStory = data.target.alt
@@ -35,7 +45,7 @@ function story() {
         let clrTimeout = setTimeout(() => {
             storyFill.style.display = "none"
         }, 4000);
-        storyClose,storyFilled.addEventListener("click",function(){
+        storyClose, storyFilled.addEventListener("click", function () {
             storyFill.style.display = "none"
             clearTimeout(clrTimeout)
         })
@@ -60,36 +70,37 @@ function post() {
         pElement.innerHTML = Math.floor(Math.random() * 1000);
     });
 
-    photosI.forEach((photoLike, index) => {
-        let pLike = photosP[index];
-        let liked = false;
+    // photosI.forEach((photoLike, idx) => {
+    //     let pp = photosP[idx];
+    //     let liked = false;
 
-        photoLike.addEventListener("click", function () {
-            if (!liked) {
-                photoLike.classList.add("fa-solid");
-                pLike.innerText = parseInt(pLike.innerText) + 1;
+    //     photoLike.addEventListener("click", function () {
+    //         if (!liked) {
+    //             photoLike.classList.add("fa-solid");
+    //             pp.innerText = parseInt(pp.innerText) + 1;
 
-                photoLike.style.transform = "scale(1.1)";
-                setTimeout(() => {
-                    photoLike.style.transform = "scale(1)";
-                }, 100);
+    //             photoLike.style.transform = "scale(1.1)";
+    //             setTimeout(() => {
+    //                 photoLike.style.transform = "scale(1)";
+    //             }, 100);
 
-                screenLike.forEach((screen) => {
-                    screen.style.opacity = "0.5";
-                    setTimeout(() => {
-                        screen.style.opacity = "0";
-                    }, 1200);
-                });
+    //             screenLike.forEach((screen) => {
+    //                 screen.style.opacity = "0.5";
+    //                 setTimeout(() => {
+    //                     screen.style.opacity = "0";
+    //                 }, 1200);
+    //             });
 
-                liked = true;
-            } else {
-                photoLike.classList.remove("fa-solid");
-                pLike.innerText = parseInt(pLike.innerText) - 1;
-                liked = false;
-            }
-        });
-    });
+    //             liked = true;
+    //         }
+    //         else {
+    //             photoLike.classList.remove("fa-solid");
+    //             pp.innerText = parseInt(pp.innerText) - 1;
+    //             liked = false;
+    //         }
+    //     })
 
+    // });
     photoImg.forEach((imgElement, index) => {
         let likedE = false;
         imgElement.addEventListener("dblclick", function () {
@@ -116,13 +127,15 @@ function post() {
                         screen.style.opacity = "0";
                     }, 1200);
                 });
-                if (liked==true) {
-                    console.log("likedddd")
+                if (liked == true) {
+                    
                 }
             }
 
         });
     });
+
+
 
     photosI2.forEach((photoPlane) => {
         photoPlane.addEventListener("mousemove", function () {
