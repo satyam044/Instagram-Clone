@@ -66,12 +66,13 @@ function reel() {
                 reelIco2.innerText++ + 1;
                 clicked = 1
                 liked = true;
-                setTimeout(() => {
+                let rmvTimeout = setTimeout(() => {
                     reelLike.style.opacity = "0"
                 }, 1000);
+                clearTimeout(rmvTimeout)
             } else {
                 reelIco2.innerText === 1;
-                liked = true
+                liked = false;
                 reelLike.style.opacity = "0.5"
                 setTimeout(() => {
                     reelLike.style.opacity = "0"
@@ -84,13 +85,13 @@ function reel() {
                     reelIcon2.classList.remove("fa-solid")
                     reelIco2.innerText-- - 1;
                     liked = false
-                    clicked = 0
+                    clicked = 0;
                 } else {
                     reelIcon2.classList.add("fa-solid")
                     reelLike.style.opacity = "0.5"
                     reelIco2.innerText++ + 1;
                     clicked = 1
-                    setTimeout(() => {
+                    let rmvTimeout = setTimeout(() => {
                         reelLike.style.opacity = "0"
                     }, 1000);
                 }

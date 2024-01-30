@@ -20,7 +20,7 @@ function story() {
     let storyClose = document.querySelector(".stories .storyFilled i")
 
     clutter = ""
-    
+
     let usedIndices = [];
     storyArr.forEach(function (elem, idx) {
         let randomIndex;
@@ -63,79 +63,54 @@ function post() {
     let photosP = document.querySelectorAll(".photos p");
     let photosP2 = document.querySelectorAll(".photos p2");
 
-    photosP.forEach((pElement) => {
+    let likedStatus = Array.from({ length: photosI.length }, () => false);
+
+    function handleLike(idx) {
+        let photoLike = photosI[idx];
+        let pElement = photosP[idx];
+
+        if (!likedStatus[idx]) {
+            photoLike.classList.add("fa-solid");
+            pElement.innerText = parseInt(pElement.innerText) + 1;
+
+            photoLike.style.transform = "scale(1.1)";
+            setTimeout(() => {
+                photoLike.style.transform = "scale(1)";
+            }, 100);
+
+            screenLike.forEach((screen) => {
+                screen.style.opacity = "0.5";
+                setTimeout(() => {
+                    screen.style.opacity = "0";
+                }, 1200);
+            });
+
+            likedStatus[idx] = true;
+        } else {
+            photoLike.classList.remove("fa-solid");
+            pElement.innerText = parseInt(pElement.innerText) - 1;
+            likedStatus[idx] = false;
+        }
+    }
+
+    photosP.forEach((pElement, idx) => {
         pElement.innerHTML = Math.floor(Math.random() * 10000);
+
+        let photoLike = photosI[idx];
+
+        photoLike.addEventListener("click", () => {
+            handleLike(idx);
+        });
     });
-    photosP2.forEach((pElement) => {
+    photosP2.forEach((pElement, idx) => {
         pElement.innerHTML = Math.floor(Math.random() * 1000);
     });
 
-    // photosI.forEach((photoLike, idx) => {
-    //     let pp = photosP[idx];
-    //     let liked = false;
-
-    //     photoLike.addEventListener("click", function () {
-    //         if (!liked) {
-    //             photoLike.classList.add("fa-solid");
-    //             pp.innerText = parseInt(pp.innerText) + 1;
-
-    //             photoLike.style.transform = "scale(1.1)";
-    //             setTimeout(() => {
-    //                 photoLike.style.transform = "scale(1)";
-    //             }, 100);
-
-    //             screenLike.forEach((screen) => {
-    //                 screen.style.opacity = "0.5";
-    //                 setTimeout(() => {
-    //                     screen.style.opacity = "0";
-    //                 }, 1200);
-    //             });
-
-    //             liked = true;
-    //         }
-    //         else {
-    //             photoLike.classList.remove("fa-solid");
-    //             pp.innerText = parseInt(pp.innerText) - 1;
-    //             liked = false;
-    //         }
-    //     })
-
-    // });
     photoImg.forEach((imgElement, index) => {
-        let likedE = false;
-        imgElement.addEventListener("dblclick", function () {
-            if (likedE == false) {
-                let pLike = photosP[index];
-                photoLike = photosI[index];
-                likedE = true;
-                liked = true;
-
-                photoLike.classList.add("fa-solid");
-                pLike.innerText = parseInt(pLike.innerText) + 1;
-
-                screenLike.forEach((screen) => {
-                    screen.style.opacity = "0.5";
-                    setTimeout(() => {
-                        screen.style.opacity = "0";
-                    }, 1200);
-                });
-            }
-            else {
-                screenLike.forEach((screen) => {
-                    screen.style.opacity = "0.5";
-                    setTimeout(() => {
-                        screen.style.opacity = "0";
-                    }, 1200);
-                });
-                if (liked == true) {
-                    
-                }
-            }
-
+        imgElement.addEventListener("dblclick", () => {
+            handleLike(index);
         });
     });
-
-
 
     photosI2.forEach((photoPlane) => {
         photoPlane.addEventListener("mousemove", function () {
@@ -214,8 +189,8 @@ function post() {
 
             let photos = "https://source.unsplash.com/random/?" + arr[wordArr];
             let createPhoto = document.querySelector(".photos");
-            let photoSec = document.createElement("div"); // Create a new div element
-            photoSec.classList.add("photoSec"); // Add the "photoSec" class to the new div
+            let photoSec = document.createElement("div");
+            photoSec.classList.add("photoSec");
 
             let screenLike = document.createElement("div");
             screenLike.classList.add("screenLike");
@@ -226,23 +201,18 @@ function post() {
             screenLike.appendChild(screenElement)
             photoSec.appendChild(screenLike)
 
-            // Create the photoImg div
             let photoImgDiv = document.createElement("div");
             photoImgDiv.classList.add("photoImg");
 
-            // Create the img element
             let imgElement = document.createElement("img");
             imgElement.src = photos;
             imgElement.style.objectFit = getRandomSize();
             imgElement.style.filter = getRandomFilter();
 
-            // Append the img element to the photoImg div
             photoImgDiv.appendChild(imgElement);
 
-            // Create the photoI div
             let photoIDiv = document.createElement("div");
             photoIDiv.classList.add("photoI");
-            // Create the heart icon and count
             let heartIcon = document.createElement("i");
             heartIcon.classList.add("fa-regular", "fa-heart", "photoLike");
 
@@ -250,7 +220,6 @@ function post() {
             const heartIconText = Math.floor(Math.random() * 10000);
             heartCount.textContent = heartIconText;
 
-            // Function to set up click event listener for the heart icon and count
             function setupHeartClick() {
                 let liked = 0;
                 let pLike = heartCount;
@@ -275,16 +244,33 @@ function post() {
                         liked = 0;
                     }
                 });
+                imgElement.addEventListener("dblclick",function(){
+                    if (liked === 0) {
+                        heartIcon.classList.toggle("fa-solid");
+                        pLike.textContent = parseInt(pLike.textContent) + 1;
+                        liked = 1;
+                        heartIcon.style.transform = "scale(1.1)"
+                        setInterval(() => {
+                            heartIcon.style.transform = "scale(1)"
+                        }, 100);
+                        screenElement.style.opacity = "0.5"
+                        setTimeout(() => {
+                            screenElement.style.opacity = "0"
+                        }, 1000)
+
+                    } else {
+                        heartIcon.classList.toggle("fa-solid");
+                        pLike.textContent = parseInt(pLike.textContent) - 1;
+                        liked = 0;
+                    }
+                })
             }
 
-            // Call the function with an index (you can pass the appropriate index)
             setupHeartClick(0);
 
-            // Append the heart icon and count to the photoI div
             photoIDiv.appendChild(heartIcon);
             photoIDiv.appendChild(heartCount);
 
-            // Create the paper-plane icon and count
             let paperPlaneIcon = document.createElement("i2");
             paperPlaneIcon.classList.add("fa-regular", "fa-paper-plane", "photoSend");
             let paperPlaneCount = document.createElement("p2");
@@ -300,15 +286,12 @@ function post() {
                 paperPlaneIcon.classList.remove("fa-solid")
             })
 
-            // Append the paper-plane icon and count to the photoI div
             photoIDiv.appendChild(paperPlaneIcon);
             photoIDiv.appendChild(paperPlaneCount);
 
-            // Append the photoImg and photoI divs to the photoSec div
             photoSec.appendChild(photoImgDiv);
             photoSec.appendChild(photoIDiv);
 
-            // Append the photoSec div to the createPhoto element
             createPhoto.appendChild(photoSec);
 
         }
