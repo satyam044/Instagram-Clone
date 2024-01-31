@@ -210,47 +210,47 @@ nav img:hover,.noti i:hover{
 /* explore */
 
 #Ex-search{
-    width: 100%;
+    width: 102%;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 #Ex-search input{
-    width: 80%;
-    height: 1.3rem;
+    width: 100%;
+    height: 2rem;
     outline: none;
-    border: 1.5px solid black;
     margin-right: 0.5rem;
-    background-color: #f5fcfa;
-    padding-left: 0.7rem;
+    background-color: #aac8be;
+    border: none;
+    padding-left: 2.3rem;
 }
 #Ex-search i{
-    background-color: #d7deda;
+    position: absolute;
     height: 1.8rem;
     width: 1.8rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    left: 1rem;
 }
 .Ex-sec{
+    margin-top: 1rem;
     min-height: 90vh;
     height: auto;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
 }
 
 .Ex-sec img{
     margin-top: 0.5rem;
-    background-color: azure;
-    width: 30%;
+    width: 100%;
     height: 35vh;
     border: 2px solid black;
     object-fit: cover;
+    border-radius: 5%;
 }
 
 

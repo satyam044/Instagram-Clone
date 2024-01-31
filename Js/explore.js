@@ -1,32 +1,61 @@
-function ExSearch(){
-    const accessKey = "F9Bbk9DljdIsrFj2FQFbc2_yFlnh_h1bFyhcXKn7k7E";
+function ExSearch() {
+    const accessKey = "42130655-4dc8270fabe9e178cce07c32c";
 
     let formSubmit = document.querySelector("#Ex-search")
     let searchBar = document.querySelector("#Ex-search-input")
     let searchIcon = document.querySelector("#Ex-search-i")
-    let searchResult = document.getElementsByClassName(".Ex-sec")
+    let searchResult = document.querySelector(".Ex-sec")
 
     let keyword = "";
-    let page = 1;
-    async function getImage(){
+    ExHtml = "";
+    async function getImage() {
         keyword = searchBar.value;
-        const searchUrl = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${accessKey}`;
+        const searchUrl = `https://pixabay.com/api/?key=${accessKey}&q=${keyword}&pretty=true`;
 
         const response = await fetch(searchUrl);
         const data = await response.json();
 
-        const results = data.results;
-
-        results.map((result)=>{
-            const image = document.createElement("img");
-            image.src = result.urls.small;
-        })
+        ExHtml = `
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        <img src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+        `
+        searchResult.innerHTML += ExHtml;
     }
-    formSubmit.addEventListener("submit",function(e){
+    keydown = searchBar.addEventListener("keydown", function () {
+        searchResult.innerHTML = "";
+        getImage()
+    })
+
+    formSubmit.addEventListener("submit", (e) => {
         e.preventDefault();
         getImage();
-    })
+    });
+
+    searchIcon.addEventListener("click",function(){
+        getImage()
+    });
     
+    window.addEventListener("load",()=>{
+        getImage()
+    })
+    window.addEventListener("scroll", function (event) {
+        scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        scrollend = window.scrollY;
+
+        if (Math.ceil(scrollend) === (scrollable)) {
+            getImage()
+        }
+    })
 }
 
 ExSearch()
