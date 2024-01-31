@@ -209,21 +209,48 @@ nav img:hover,.noti i:hover{
 
 /* explore */
 
+#Ex-search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#Ex-search input{
+    width: 80%;
+    height: 1.3rem;
+    outline: none;
+    border: 1.5px solid black;
+    margin-right: 0.5rem;
+    background-color: #f5fcfa;
+    padding-left: 0.7rem;
+}
+#Ex-search i{
+    background-color: #d7deda;
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 .Ex-sec{
     min-height: 90vh;
     height: auto;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
+    padding: 0rem 1rem;
 }
 
-.Ex-photos{
+.Ex-sec img{
     margin-top: 0.5rem;
     background-color: azure;
     width: 30%;
     height: 35vh;
     border: 2px solid black;
+    object-fit: cover;
 }
 
 
