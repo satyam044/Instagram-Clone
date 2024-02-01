@@ -31,9 +31,10 @@ function story() {
         usedIndices.push(randomIndex);
 
         let sdp = storyArr[randomIndex].dp;
+        let sstory = storyArr[randomIndex].story;
 
         clutter += `<div class="Story">
-        <img id="${idx}" src="${sdp}" alt="${elem.story}">
+        <img id="${idx}" src="${sdp}" alt="${sstory}">
     </div>`;
     });
 
