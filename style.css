@@ -214,14 +214,14 @@ nav img:hover,.noti i:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: sticky;
 }
 #Ex-search input{
     width: 100%;
     height: 2rem;
     outline: none;
     margin-right: 0.5rem;
-    background-color: #aac8be;
+    background-color: #b9dacf;
     border: none;
     padding-left: 2.3rem;
 }
@@ -251,9 +251,11 @@ nav img:hover,.noti i:hover{
     border: 2px solid black;
     object-fit: cover;
     border-radius: 5%;
+    cursor: pointer;
 }
-
-
+.Ex-sec img:hover{
+    transform: scale(1.02);
+}
 
 /* reels */
 .reelContainer{
