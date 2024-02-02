@@ -324,3 +324,10 @@ nav img:hover,.noti i:hover{
     opacity: 0;
     transition: all 1.5s ease;
 }
+
+/* msg section */
+.msgContainer{
+    height: 80vh;
+    width: 100%;
+    background-color: #dfe1e0;
+}
