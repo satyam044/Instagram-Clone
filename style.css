@@ -387,10 +387,12 @@ nav img:hover,
     height: 95%;
     width: 25%;
     background-color: #dae1de;
-    border: 2px solid black;
     margin: 0 0.5rem;
     overflow-y: auto;
     overflow-x: hidden;
+}
+.msgContainer .msgContLeft::-webkit-scrollbar{
+    width: 0;
 }
 .msgContainer .msgContLeft .msgHeader{
     width: 100%;
@@ -399,18 +401,21 @@ nav img:hover,
     text-align: center;
     line-height: 2rem;
     font-family: 'Ubuntu', sans-serif;
-    border-bottom: 1px solid;
+    border-bottom: 2px solid;
     font-size: 1.4rem;
+    position: sticky;
+    top: 0;
 }
 .msgContainer .msgContLeft .msgNames{
     margin: 1rem auto;
     background-color: aquamarine;
     max-width: 70%;
-    padding: 0.3rem 1rem;
-    font-size: 1.5rem;
+    padding: 0rem 1rem;
+    font-size: 1.3rem;
     border: 1px solid black;
     overflow: hidden;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 
@@ -422,6 +427,7 @@ nav img:hover,
     background-color: #b9dacf;
     border: 2px solid black;
     position: relative;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .msgContainer .msgContRight .msgCont {
