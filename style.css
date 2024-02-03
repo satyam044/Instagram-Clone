@@ -1,21 +1,27 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap');
+
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     max-width: 40rem;
     margin: auto;
     padding: 0 1rem;
+    font-family: 'Kanit', sans-serif;
 }
-.navbar{
+
+.navbar {
     display: flex;
     justify-content: space-around;
     width: 100%;
     height: 3rem;
     align-items: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-nav{
+
+nav {
     position: relative;
     right: 3rem;
     width: 13rem;
@@ -23,33 +29,41 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
-nav a{
+
+nav a {
     color: black;
 }
-nav img{
+
+nav img {
     width: 1.4rem;
     cursor: pointer;
 }
-nav img,.noti i{
+
+nav img,
+.noti i {
     font-size: 1.2rem;
     cursor: pointer;
 }
-nav img:hover,.noti i:hover{
+
+nav img:hover,
+.noti i:hover {
     position: relative;
     top: -1px;
 }
 
-.stories{
-    margin:1rem 0;
+.stories {
+    margin: 1rem 0;
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
     align-items: center;
 }
-.stories::-webkit-scrollbar{
-    height:0;
+
+.stories::-webkit-scrollbar {
+    height: 0;
 }
-.myStory{
+
+.myStory {
     height: 4rem;
     min-width: 4rem;
     border: 2px solid black;
@@ -59,7 +73,8 @@ nav img:hover,.noti i:hover{
     background-color: rgb(223, 243, 243);
     cursor: pointer;
 }
-.myStory i{
+
+.myStory i {
     height: 1.2rem;
     width: 1.2rem;
     position: absolute;
@@ -73,14 +88,16 @@ nav img:hover,.noti i:hover{
     background-color: rgb(206, 225, 225);
     cursor: pointer;
 }
-.otherStories{
+
+.otherStories {
     white-space: nowrap;
     height: 100%;
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
-.otherStories .Story{
+
+.otherStories .Story {
     height: 4rem;
     width: 4rem;
     cursor: pointer;
@@ -93,13 +110,15 @@ nav img:hover,.noti i:hover{
     border-right-color: rgb(247, 5, 45);
     overflow: hidden;
 }
-.otherStories .Story img{
+
+.otherStories .Story img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
 }
-.stories .story-fill{
+
+.stories .story-fill {
     height: 100%;
     width: 51%;
     background-color: #dfe1e0;
@@ -111,7 +130,8 @@ nav img:hover,.noti i:hover{
     align-items: center;
     display: none;
 }
-.stories .story-fill .storyFilled{
+
+.stories .story-fill .storyFilled {
     width: 60%;
     height: 95%;
     border-radius: 10px;
@@ -120,7 +140,8 @@ nav img:hover,.noti i:hover{
     background-position: center;
     filter: brightness(0.8);
 }
-.stories .story-fill .storyBar{
+
+.stories .story-fill .storyBar {
     position: absolute;
     background-color: rgba(232, 227, 209, 0.769);
     height: 0.1rem;
@@ -131,7 +152,8 @@ nav img:hover,.noti i:hover{
     animation: storyBar 4s 1 linear;
     display: none;
 }
-.stories .storyFilled i{
+
+.stories .storyFilled i {
     position: relative;
     font-size: 2rem;
     left: 32vw;
@@ -139,57 +161,69 @@ nav img:hover,.noti i:hover{
     opacity: 0.7;
     cursor: pointer;
 }
+
 @keyframes storyBar {
-    from{
+    from {
         width: 0%;
     }
-    to{
+
+    to {
         width: 90%;
     }
 }
 
-.photos{
+.photos {
     margin: 2rem 0;
     height: 60vh;
     width: 100%;
 }
-.photos .photoSec{
+
+.photos .photoSec {
     width: 100%;
     height: 100%;
     position: relative;
     margin-bottom: 3rem;
 }
-.photos .photoSec .photoImg{
+
+.photos .photoSec .photoImg {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.photos .photoSec img{
+
+.photos .photoSec img {
     height: 100%;
-    width:100%;
+    width: 100%;
     object-fit: cover;
     border-radius: 10px;
     position: relative;
 }
-.photos .photoSec .photoI{
+
+.photos .photoSec .photoI {
     position: absolute;
     bottom: -1.9rem;
     width: 10%;
     display: flex;
 }
-.photos .photoSec .photoI i,.photos .photoSec .photoI i2{
+
+.photos .photoSec .photoI i,
+.photos .photoSec .photoI i2 {
     position: relative;
     cursor: pointer;
-} 
-.photos .photoSec .photoI i:hover,.photos .photoSec .photoI i2:hover{
+}
+
+.photos .photoSec .photoI i:hover,
+.photos .photoSec .photoI i2:hover {
     bottom: 1px;
 }
-.photos .photoSec .photoI p, .photos .photoSec .photoI p2{
+
+.photos .photoSec .photoI p,
+.photos .photoSec .photoI p2 {
     margin-left: 0.3rem;
     margin-right: 1.9rem;
 }
 
-.photos .screenLike{
+.photos .screenLike {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,7 +231,8 @@ nav img:hover,.noti i:hover{
     position: absolute;
     left: 50%;
 }
-.photos .screenLike i{
+
+.photos .screenLike i {
     position: absolute;
     z-index: 1000;
     font-size: 5rem;
@@ -209,14 +244,15 @@ nav img:hover,.noti i:hover{
 
 /* explore */
 
-#Ex-search{
+#Ex-search {
     width: 102%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
 }
-#Ex-search input{
+
+#Ex-search input {
     width: 100%;
     height: 2rem;
     outline: none;
@@ -225,7 +261,8 @@ nav img:hover,.noti i:hover{
     border: none;
     padding-left: 2.3rem;
 }
-#Ex-search i{
+
+#Ex-search i {
     position: absolute;
     height: 1.8rem;
     width: 1.8rem;
@@ -234,7 +271,8 @@ nav img:hover,.noti i:hover{
     align-items: center;
     left: 1rem;
 }
-.Ex-sec{
+
+.Ex-sec {
     margin-top: 1rem;
     min-height: 90vh;
     height: auto;
@@ -244,7 +282,7 @@ nav img:hover,.noti i:hover{
     grid-gap: 0.5rem;
 }
 
-.Ex-sec img{
+.Ex-sec img {
     margin-top: 0.5rem;
     width: 100%;
     height: 35vh;
@@ -253,13 +291,14 @@ nav img:hover,.noti i:hover{
     border-radius: 5%;
     cursor: pointer;
 }
-.Ex-sec img:hover{
+
+.Ex-sec img:hover {
     transform: scale(1.02);
 }
 
 /* reels */
-.reelContainer{
-    margin:1.5rem auto;
+.reelContainer {
+    margin: 1.5rem auto;
     height: 80vh;
     display: flex;
     justify-content: center;
@@ -267,7 +306,8 @@ nav img:hover,.noti i:hover{
     position: relative;
     border-radius: 10px;
 }
-.reelContainer .reelNextVideo video{
+
+.reelContainer .reelNextVideo video {
     position: relative;
     height: 90%;
     width: 100%;
@@ -276,16 +316,18 @@ nav img:hover,.noti i:hover{
     background-size: contain;
     z-index: 1;
 }
-.reelContainer .reelIcon{
+
+.reelContainer .reelIcon {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 90%;
     position: relative;
-    right:4rem;
+    right: 4rem;
 }
-.reelContainer .reelIcon i{
+
+.reelContainer .reelIcon i {
     font-size: 2vw;
     margin: 1rem 0;
     cursor: pointer;
@@ -296,22 +338,26 @@ nav img:hover,.noti i:hover{
     position: relative;
     z-index: 10;
 }
-.reelContainer .reelIcon i:hover{
+
+.reelContainer .reelIcon i:hover {
     position: relative;
     top: -2px;
 }
-.reelContainer .reelIcon i p{
+
+.reelContainer .reelIcon i p {
     margin-top: 0.7rem;
     font-size: 0.7rem;
 }
-.reelContainer .reelDown i{
+
+.reelContainer .reelDown i {
     position: absolute;
     bottom: 0;
     left: 50%;
     z-index: 10;
     cursor: pointer;
 }
-.reelContainer .likeReel{
+
+.reelContainer .likeReel {
     position: absolute;
     z-index: 10;
     display: flex;
@@ -326,8 +372,118 @@ nav img:hover,.noti i:hover{
 }
 
 /* msg section */
-.msgContainer{
+.msgContainer {
     height: 80vh;
-    width: 100%;
+    width: 70vw;
     background-color: #dfe1e0;
+    position: relative;
+    right: 20%;
+    display: flex;
+    align-items: center;
+}
+
+/* left side */
+.msgContainer .msgContLeft {
+    height: 95%;
+    width: 25%;
+    background-color: #dae1de;
+    border: 2px solid black;
+    margin: 0 0.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.msgContainer .msgContLeft .msgHeader{
+    width: 100%;
+    height: 2rem;
+    background-color: #b9dacf;
+    text-align: center;
+    line-height: 2rem;
+    font-family: 'Ubuntu', sans-serif;
+    border-bottom: 1px solid;
+    font-size: 1.4rem;
+}
+.msgContainer .msgContLeft .msgNames{
+    margin: 1rem auto;
+    background-color: aquamarine;
+    max-width: 70%;
+    padding: 0.3rem 1rem;
+    font-size: 1.5rem;
+    border: 1px solid black;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+
+/* Right side */
+.msgContainer .msgContRight {
+    height: 95%;
+    width: 100%;
+    margin-right: 0.5rem;
+    background-color: #b9dacf;
+    border: 2px solid black;
+    position: relative;
+}
+
+.msgContainer .msgContRight .msgCont {
+    height: 90%;
+    width: 100%;
+    background-color: antiquewhite;
+    overflow: auto;
+}
+
+.msgContainer .msgContRight .msgCont::-webkit-scrollbar{
+    width: 20px;
+}
+
+.msgContainer .msgContRight .msgCont .message{
+    width: 35%;
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #dae1de;
+}
+.msgContainer .msgContRight .msgCont .message-left{
+    float: left;
+    clear: both;
+}
+.msgContainer .msgContRight .msgCont .message-right{
+    float: right;
+    clear: both;
+}
+.msgContainer .msgContRight .send {
+    position: absolute;
+    width: 100%;
+    top: 90%;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dfe1e0;
+    border-top: 1px solid black;
+}
+
+#send-container {
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+    height: 1.6rem;
+}
+
+#send-container input {
+    width: 85%;
+    background-color: aliceblue;
+    border: 1px solid black;
+    outline: none;
+    padding: 0 0.5rem;
+}
+
+#send-container button {
+    width: 10%;
+    background-color: #b9dacf;
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 1rem;
+    
 }
