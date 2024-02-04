@@ -14,20 +14,20 @@ const append = (message, position) => {
     msgCont.append(msgElem);
 }
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const message = msgInp.value;
-    append(`You: ${message}`, 'right');
-    socket.emit("send", message);
-    msgInp.value = "";
-})
-
 let name;
 
 do {
     name = prompt("Enter Your Name");
     socket.emit('new-user-joined', name);
 } while (name === "");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const message = msgInp.value;
+    append(`${name}: ${message}`, 'right');
+    socket.emit("send", message);
+    msgInp.value = "";
+})
 
 socket.on('user-joined', name => {
     if (name != "" && name != null) {
@@ -38,7 +38,7 @@ socket.on('user-joined', name => {
             msgContLeft.append(msgDiv)
         }
         msgLDiv(`${name}`)
-        append(`${name} joined the chat`, 'left')   
+        append(`${name} joined the chat`, 'left')
     }
 })
 socket.on('receive', data => {
@@ -46,15 +46,28 @@ socket.on('receive', data => {
 })
 socket.on('left', name => {
     if (name != null) {
-    const msgLDiv = (name) => {
-        let msgDiv = document.createElement('div')
-        msgDiv.innerText = name;
-        msgDiv.classList.add("msgNames")
-        msgDiv.style.backgroundColor = "red"
-        msgDiv.style.color = "white"
-        msgContLeft.append(msgDiv)
+        const msgLDiv = (name) => {
+            let msgDiv = document.createElement('div')
+            msgDiv.innerText = name;
+            msgDiv.classList.add("msgNames")
+            msgDiv.style.backgroundColor = "red"
+            msgDiv.style.color = "white"
+            msgContLeft.append(msgDiv)
+        }
+        msgLDiv(`${name} Left`)
+        append(`${name}: left the chat`, 'left')
     }
-    msgLDiv(`${name} Left`)
-    append(`${name}: left the chat`, 'left')   
+})
+
+let hamburger = document.querySelector(".msgContainer .msgContLeft i ")
+
+let open = false;
+hamburger.addEventListener("click", function () {
+    if (open == false) {
+        document.querySelector(".msgContainer .msgContLeft").style.left = "0.4vw"
+        open = true;
+    } else {
+        document.querySelector(".msgContainer .msgContLeft").style.left = "-40vw"
+        open = false;
     }
 })
