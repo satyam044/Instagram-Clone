@@ -107,31 +107,29 @@ function ExSearch() {
             searchResult.innerHTML += ExHtml;
         }
         getImage()
+        getImage()
     })
-    window.addEventListener("scroll", function () {
-        scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        scrollend = window.scrollY;
+    window.addEventListener("scrollend", function () {
+        async function getImage() {
+            keyword = searchBar.value;
+            const searchUrl = `https://pixabay.com/api/?key=${accessKey}&q=${keyword}&pretty=true`;
 
-        if (Math.ceil(scrollend) === (scrollable)) {
-            async function getImage() {
-                keyword = searchBar.value;
-                const searchUrl = `https://pixabay.com/api/?key=${accessKey}&q=${keyword}&pretty=true`;
+            const response = await fetch(searchUrl);
+            const data = await response.json();
 
-                const response = await fetch(searchUrl);
-                const data = await response.json();
-
-                ExHtml = `
-                <img id="${id++ + 1}" src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
-                <img id="${id++ + 1}" src="${"https://source.unsplash.com/random/?" + arr[Math.floor(Math.random() * arr.length)]}" alt="">
-                <img id="${id++ + 1}" src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
-                <img id="${id++ + 1}" src="${"https://source.unsplash.com/random/?" + arr[Math.floor(Math.random() * arr.length)]}" alt="">
-                <img id="${id++ + 1}" src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
-                <img id="${id++ + 1}" src="${"https://source.unsplash.com/random/?" + arr[Math.floor(Math.random() * arr.length)]}" alt="">
-                `
-                searchResult.innerHTML += ExHtml;
-            }
-            getImage()
+            ExHtml = `
+            <img id="${id++ + 1}" src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+            <img id="${id++ + 1}" src="${"https://source.unsplash.com/random/?" + arr[Math.floor(Math.random() * arr.length)]}" alt="">
+            <img id="${id++ + 1}" src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+            <img id="${id++ + 1}" src="${"https://source.unsplash.com/random/?" + arr[Math.floor(Math.random() * arr.length)]}" alt="">
+            <img id="${id++ + 1}" src="${data.hits[Math.floor(Math.random() * 20)].largeImageURL}" alt="">
+            <img id="${id++ + 1}" src="${"https://source.unsplash.com/random/?" + arr[Math.floor(Math.random() * arr.length)]}" alt="">
+            `
+            searchResult.innerHTML += ExHtml;
         }
+        getImage()
+        getImage()
+
     })
 }
 

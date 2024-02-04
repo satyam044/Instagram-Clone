@@ -1,3 +1,17 @@
+let hamburger = document.querySelector(".msgContainer .msgContLeft i ")
+
+let open = false;
+hamburger.addEventListener("click", function () {
+    if (open == false) {
+        document.querySelector(".msgContainer .msgContLeft").style.left = "0.4vw"
+        open = true;
+    } else {
+        document.querySelector(".msgContainer .msgContLeft").style.left = "-41vw"
+        open = false;
+    }
+})
+
+
 const socket = io('http://localhost:3000');
 
 const form = document.getElementById("send-container");
@@ -56,18 +70,5 @@ socket.on('left', name => {
         }
         msgLDiv(`${name} Left`)
         append(`${name}: left the chat`, 'left')
-    }
-})
-
-let hamburger = document.querySelector(".msgContainer .msgContLeft i ")
-
-let open = false;
-hamburger.addEventListener("click", function () {
-    if (open == false) {
-        document.querySelector(".msgContainer .msgContLeft").style.left = "0.4vw"
-        open = true;
-    } else {
-        document.querySelector(".msgContainer .msgContLeft").style.left = "-40vw"
-        open = false;
     }
 })

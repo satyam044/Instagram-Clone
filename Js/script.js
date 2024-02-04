@@ -125,11 +125,8 @@ function post() {
     })
 
 
-    window.addEventListener("scroll", function (event) {
-        scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        scrollend = window.scrollY;
-
-        if (Math.ceil(scrollend) === (scrollable)) {
+    window.addEventListener("scrollend", function () {
+        function scroll(){
             const arr = [
                 "model",
                 "fashion",
@@ -294,8 +291,12 @@ function post() {
             photoSec.appendChild(photoIDiv);
 
             createPhoto.appendChild(photoSec);
-
         }
+        scroll()
+        scroll()
+        scroll()
+        scroll()
+        scroll()
     })
 }
 
