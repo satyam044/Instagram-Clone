@@ -39,12 +39,14 @@ function story() {
     });
 
     stories.addEventListener("click", function (data) {
+        document.querySelector("body").style.padding = "0"
         let targetStory = data.target.alt
         storyFill.style.display = "flex"
         storyBar.style.display = "block"
         storyFilled.style.backgroundImage = `url(${targetStory})`
         let clrTimeout = setTimeout(() => {
             storyFill.style.display = "none"
+            document.querySelector("body").style.padding = "0 0.4rem"
         }, 4000);
         storyClose, storyFilled.addEventListener("click", function () {
             storyFill.style.display = "none"
@@ -126,7 +128,7 @@ function post() {
 
 
     window.addEventListener("scrollend", function () {
-        function scroll(){
+        function scroll() {
             const arr = [
                 "model",
                 "fashion",
@@ -242,7 +244,7 @@ function post() {
                         liked = 0;
                     }
                 });
-                imgElement.addEventListener("dblclick",function(){
+                imgElement.addEventListener("dblclick", function () {
                     if (liked === 0) {
                         heartIcon.classList.toggle("fa-solid");
                         pLike.textContent = parseInt(pLike.textContent) + 1;

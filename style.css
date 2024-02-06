@@ -352,7 +352,7 @@ nav img:hover,
 
 .reelContainer .reelDown i {
     position: absolute;
-    bottom: 0;
+    bottom: 3rem;
     left: 50%;
     z-index: 10;
     cursor: pointer;
@@ -525,6 +525,10 @@ nav img:hover,
         height: 4rem;
     }
 
+    nav img:hover,
+    .noti i:hover{
+        top: -3px;
+    }
     nav a {
         filter: invert(1);
     }
@@ -534,14 +538,17 @@ nav img:hover,
     }
     .stories .story-fill {
         width: 100%;
+        top: -3%;
     }
 
     .stories .story-fill .storyFilled {
         width: 100%;
         position: relative;
-        left: -7px;
     }
 
+    .msgContainer{
+        height: 70vh;
+    }
     .msgContainer .msgContLeft i {
         display: block;
     }
